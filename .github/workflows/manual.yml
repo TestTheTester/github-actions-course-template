@@ -26,7 +26,7 @@ jobs:
     # Runs a single command using the runners shell
     - name: Send greeting
       if: ${{ github.event.inputs.name == '' }}
-      run: echo 'Name not defined'
+      run: echo "GITHUB_SHA_SHORT=$(echo $GITHUB_SHA | cut -c 1-6)" >> $GITHUB_ENV && echo $GITHUB_SHA_SHORT
     - name: Send greeting to Name
       if: ${{ github.event.inputs.name != '' }}
       run: echo 'Hello ${{ github.event.inputs.name }}'    
