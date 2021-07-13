@@ -27,11 +27,8 @@ jobs:
     steps:
     # Runs a single command using the runners shell
     - name: Send greeting
-      if: ${{ github.event.inputs.name }} != NULL
       run: |
-          TOKEN = ${{ github.event.inputs.name }}
-          if [[ -z "$TOKEN" ]]; then
-            echo $TOKEN
+          if [[ -z ${{ github.event.inputs.name }} ]]; then
             TOKEN = 'Random'
             echo $TOKEN
           fi
