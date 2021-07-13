@@ -27,10 +27,10 @@ jobs:
     steps:
     # Runs a single command using the runners shell
     - name: Send greeting
-      if: ${{ github.event.inputs.name }}
+      if: ${{ github.event.inputs.name }} != NULL
       run: |
           echo "Hello ${{ github.event.inputs.name }}"
-    - name: Send greeting with default name
+    - name: Send greeting with default name == NULL
       if: ${{ github.event.inputs.name }}
       run: |
           echo "Hello XYZ"    
