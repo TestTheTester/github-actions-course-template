@@ -29,5 +29,5 @@ jobs:
     - name: Send greeting
       run: |
           NAME = ${{ github.event.inputs.name }}
-          if ${{ github.event.inputs.name }}; then NAME = 'No Name'; fi;
-          echo "Hello $NAME"
+          if !${{ github.event.inputs.name }}; then NAME = 'No Name'; fi;
+          echo $NAME
